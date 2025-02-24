@@ -30,7 +30,7 @@ jobs:
     needs: 
       - pre_jobs
     if: |
-      always() && (needs.pre_jobs.result == 'skipped' || needs.pre_job.result == 'success') 
+      always() && (needs.pre_jobs.result == 'skipped' || needs.pre_jobs.result == 'success') 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
