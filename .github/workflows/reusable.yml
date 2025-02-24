@@ -16,7 +16,7 @@ on:
 
 jobs:
   pre_jobs:
-    if: ${{ inputs.run_pre_jobs == 'true' }}
+    if: ${{ inputs.run_pre_jobs == true }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -38,7 +38,7 @@ jobs:
         run: echo "Running mandatory job 2"
 
   post_jobs:
-    if: ${{ inputs.run_post_jobs == 'true' }}
+    if: ${{ inputs.run_post_jobs == true }}
     needs: [mandatory_jobs]
     runs-on: ubuntu-latest
     steps:
