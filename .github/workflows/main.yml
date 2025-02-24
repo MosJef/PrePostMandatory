@@ -21,5 +21,5 @@ jobs:
   call_reusable_workflow:
     uses: ./.github/workflows/reusable.yml
     with:
-      run_pre_jobs: ${{ github.event_name == workflow_dispatch && github.event.inputs.run_pre_jobs || false }}
-      run_post_jobs: ${{ github.event_name == workflow_dispatch && github.event.inputs.run_post_jobs || false }}
+      run_pre_jobs: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_pre_jobs || false }}
+      run_post_jobs: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.run_post_jobs || false }}
