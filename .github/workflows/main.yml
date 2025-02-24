@@ -10,4 +10,4 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       run_pre_jobs: true
-      run_post_jobs: true
+      run_post_jobs: false
