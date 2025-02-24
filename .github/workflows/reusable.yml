@@ -6,12 +6,12 @@ on:
       run_pre_jobs:
         description: 'Run pre-jobs before mandatory jobs'
         required: false
-        default: 'false'
+        default: false
         type: boolean
       run_post_jobs:
         description: 'Run post-jobs after mandatory jobs'
         required: false
-        default: 'false'
+        default: false
         type: boolean
 
 jobs:
