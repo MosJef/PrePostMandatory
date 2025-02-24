@@ -7,12 +7,12 @@ on:
   workflow_dispatch:
     inputs:
       run_pre_jobs:
-        description: Run pre-jobs before mandatory jobs
+        description: 'Run pre-jobs before mandatory jobs'
         required: true
         default: false
         type: boolean
       run_post_jobs:
-        description: Run post-jobs after mandatory jobs
+        description: 'Run post-jobs after mandatory jobs'
         required: true
         default: false
         type: boolean
