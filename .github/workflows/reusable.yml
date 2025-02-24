@@ -1,0 +1,50 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      run_pre_jobs:
+        description: 'Run pre-jobs before mandatory jobs'
+        required: false
+        default: 'false'
+        type: boolean
+      run_post_jobs:
+        description: 'Run post-jobs after mandatory jobs'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  pre_jobs:
+    if: ${{ inputs.run_pre_jobs == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run pre-job 1
+        run: echo "Running pre-job 1"
+      - name: Run pre-job 2
+        run: echo "Running pre-job 2"
+
+  mandatory_jobs:
+    needs: [pre_jobs]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run mandatory job 1
+        run: echo "Running mandatory job 1"
+      - name: Run mandatory job 2
+        run: echo "Running mandatory job 2"
+
+  post_jobs:
+    if: ${{ inputs.run_post_jobs == 'true' }}
+    needs: [mandatory_jobs]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run post-job 1
+        run: echo "Running post-job 1"
+      - name: Run post-job 2
+        run: echo "Running post-job 2"
